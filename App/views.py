@@ -7,7 +7,7 @@ from .models import Servicio, Tecnico, Insumo
 # Create your views here.
 
 def Inicio(request):
-    return HttpResponse(f'Esto es el home')
+    return render(request,'App/inicio.html')
 
 def Servicios(request):
     return render(request,'App/servicios.html', {'servicios': Servicio.objects.all()})
@@ -61,7 +61,7 @@ def BusquedaInsumo(request):
 def Busqueda(request):
     if request.GET["nombre"]:
         nombre = request.GET["nombre"]
-        insumos = Insumo.objects.filter(nombre=nombre)
+        insumos = Insumo.objects.filter(nombre__icontains=nombre)
         return render (request,'App/busqueda.html', {'insumos':insumos,'nombre':nombre})
     else:
         return HttpResponse(f'No enviaste datos para buscar.')

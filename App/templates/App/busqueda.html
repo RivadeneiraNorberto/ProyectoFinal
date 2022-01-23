@@ -1,27 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buscador de insumos</title>
-</head>
-<body>
-    <form action="{% url 'busqueda' %}", method="GET">
-        <p>Estoy buscando el insumo: {{insumo.nombre}} </p>
+{% extends "App/padre.html" %}
+    {% load static %}
+    {% block contenidoQueCambia %}
 
-        {% if insumos %}
-            <ul>
-                {% for i in insumos %}
-                    <li> {{i.nombre}} </li>
-                {% endfor %}
-            </ul>
-            
-        {% endif %} 
-        
-    </form>
-</body>
-</html>
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Buscador de insumos</title>
+        </head>
+        <body>
+            <form action="{% url 'busqueda' %}", method="GET">
+                <p><h4>Stock disponible: </h4> </p>
 
+                {% if insumos %}
+                    <ul>
+                        {% for i in insumos %}
+                            <li> {{i.nombre}} - {{i.cantidad}} </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <h2>No hay stock disponible del insumo buscado.</h2>
+                {% endif %} 
+                
+            </form>
+        </body>
+        </html>
+    {% endblock %}
 
 
