@@ -1,6 +1,7 @@
 {% extends "App/padre.html" %}
     {% load static %}
     {% block contenidoQueCambia %}
+
         <!DOCTYPE html>
         <html lang="en">
         <head>
@@ -10,13 +11,22 @@
             <title>Buscador de insumos</title>
         </head>
         <body>
-            <h4>Busqueda de insumos.</h4>
-            <h6>Ingrese el nombre o parte del nombre del insumo para saber su stock.</h6>
             <form action="{% url 'busquedaInsumo' %}", method="GET">
-                <input type="text" name="nombre">
-                
-                <input type="submit" value="Buscar">
+                <p><h4>Stock disponible: </h4> </p>
+
+                {% if insumos %}
+                    <ul>
+                        {% for i in insumos %}
+                            <li> {{i.nombre}} - {{i.cantidad}} </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <h2>No hay stock disponible del insumo buscado.</h2>
+                {% endif %} 
+                <input type="button" onclick="history.back()" name="Volver" value="Volver">
             </form>
         </body>
         </html>
     {% endblock %}
+
+

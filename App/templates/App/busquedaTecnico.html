@@ -1,0 +1,32 @@
+{% extends "App/padre.html" %}
+    {% load static %}
+    {% block contenidoQueCambia %}
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Buscador de tecnicos</title>
+        </head>
+        <body>
+            <form action="{% url 'busquedaTecnico' %}", method="GET">
+                <p><h4>Técnicos disponibles: </h4> </p>
+
+                {% if tecnicos %}
+                    <ul>
+                        {% for i in tecnicos %}
+                            <li> {{i.nombre}} {{i.apellido}} </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <h2>No existen técnicos con el nombre especificado.</h2>
+                {% endif %} 
+                <input type="button" onclick="history.back()" name="Volver" value="Volver">
+            </form>
+        </body>
+        </html>
+    {% endblock %}
+
+

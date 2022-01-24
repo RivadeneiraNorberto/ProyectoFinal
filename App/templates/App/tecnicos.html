@@ -10,16 +10,29 @@
             <title>Consulta tecnicos</title>
         </head>
         <body>
-            <h4> Los tenicos disponibles son:</h4>
-            {% for i in tecnicos %}
-                {{i.nombre}} {{i.apellido}}
-                <br>
-            {% endfor %}
-            
+            {% if tecnicos %}
+                <h4> Los tenicos disponibles son:</h4>
+                {% for i in tecnicos %}
+                    {{i.nombre}} {{i.apellido}}
+                    <br>
+                {% endfor %}
+                
+                <form action="/altaTecnico/", method="GET">
+                    {% csrf_token %}
+                    <input type="submit" value="Nuevo técnico">
+                </form>
+                <form action="/buscarTecnico/", method="GET">
+                    {% csrf_token %}
+                    <input type="submit" value="Buscar técnico">
+                </form>
+            {% else %}
+            <h4>Aun no hay técnicos cargados.</h4>
+            <h5>Presione el boton "Nuevo técnico" para realizar la carga.</h5>
             <form action="/altaTecnico/", method="POST">
                 {% csrf_token %}
-                <input type="submit" value="Nuevo tecnico">
+                <input type="submit" value="Nuevo técnico">
             </form>
+            {% endif %}
         </body>
         </html>
     {% endblock %}

@@ -8,22 +8,22 @@
             <meta charset="UTF-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Buscador de insumos</title>
+            <title>Buscador de servicios</title>
         </head>
         <body>
-            <form action="{% url 'busqueda' %}", method="GET">
-                <p><h4>Stock disponible: </h4> </p>
+            <form action="{% url 'busquedaServicio' %}", method="GET">
+                <p><h4>Servicios disponibles: </h4> </p>
 
-                {% if insumos %}
+                {% if servicios %}
                     <ul>
-                        {% for i in insumos %}
-                            <li> {{i.nombre}} - {{i.cantidad}} </li>
+                        {% for i in servicios %}
+                            <li> {{i.nombre}} - ${{i.precio}} </li>
                         {% endfor %}
                     </ul>
                 {% else %}
-                    <h2>No hay stock disponible del insumo buscado.</h2>
+                    <h2>No existen servicios con el nombre especificado.</h2>
                 {% endif %} 
-                
+                <input type="button" onclick="history.back()" name="Volver" value="Volver">
             </form>
         </body>
         </html>

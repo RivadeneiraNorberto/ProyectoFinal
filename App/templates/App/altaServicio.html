@@ -11,6 +11,9 @@
             <title>Alta servicio</title>
         </head>
         <body>
+            {% if formulario.errors %}
+                <p style="color: red;">{{"Error en la carga"}}</p>
+            {% endif %} 
             <h4>Ingrese el nombre y descripcion del nuevo servicio: .</h4>
             <form action="", method="POST">
                 {% csrf_token %}

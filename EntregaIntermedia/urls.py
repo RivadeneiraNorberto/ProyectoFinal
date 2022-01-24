@@ -25,6 +25,10 @@ urlpatterns = [
     path('altaServicio/', views.AltaServicio, name='altaServicio'),
     path('altaInsumo/', views.AltaInsumo, name='altaInsumo'),
     path('altaTecnico/', views.AltaTecnico, name='altaTecnico'),
-    path('buscarInsumo/', views.BusquedaInsumo, name='buscarInsumo'),
-    path('busqueda/', views.Busqueda, name='busqueda'),
+    path('buscarInsumo/', views.BuscarInsumo, name='buscarInsumo'),
+    path('buscarServicio/', views.BuscarServicio, name='buscarServicio'),
+    path('buscarTecnico/', views.BuscarTecnico, name='buscarTecnico'),
+    path('busquedaInsumo/', views.BusquedaInsumo, name='busquedaInsumo'),
+    path('busquedaServicio/', views.BusquedaServicio, name='busquedaServicio'),
+    path('busquedaTecnico/', views.BusquedaTecnico, name='busquedaTecnico'),
 ]

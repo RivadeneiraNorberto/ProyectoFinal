@@ -55,13 +55,36 @@ def AltaTecnico(request):
     
     return render(request, 'App/altaTecnico.html', {'formulario':formulario})
 
-def BusquedaInsumo(request):
+def BuscarInsumo(request):
     return render (request, 'App/buscarInsumo.html')
 
-def Busqueda(request):
+def BuscarServicio(request):
+    return render (request, 'App/buscarServicio.html')
+
+def BuscarTecnico(request):
+    return render (request, 'App/buscarTecnico.html')
+
+def BusquedaInsumo(request):
     if request.GET["nombre"]:
         nombre = request.GET["nombre"]
         insumos = Insumo.objects.filter(nombre__icontains=nombre)
-        return render (request,'App/busqueda.html', {'insumos':insumos,'nombre':nombre})
+        return render (request,'App/busquedaInsumo.html', {'insumos':insumos,'nombre':nombre})
+    else:
+        return HttpResponse(f'No enviaste datos para buscar.')
+    
+    
+def BusquedaServicio(request):
+    if request.GET["nombre"]:
+        nombre = request.GET["nombre"]
+        servicios = Servicio.objects.filter(nombre__icontains=nombre)
+        return render (request,'App/busquedaServicio.html', {'servicios':servicios,'nombre':nombre})
+    else:
+        return HttpResponse(f'No enviaste datos para buscar.')
+
+def BusquedaTecnico(request): 
+    if request.GET["nombre"]:
+        nombre = request.GET["nombre"]
+        tecnicos = Tecnico.objects.filter(nombre__icontains=nombre)
+        return render (request,'App/busquedaTecnico.html', {'tecnicos':tecnicos,'nombre':nombre})
     else:
         return HttpResponse(f'No enviaste datos para buscar.')
