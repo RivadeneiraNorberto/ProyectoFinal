@@ -11,9 +11,9 @@
             <title>Alta insumo</title>
         </head>
         <body>
-            {% if formulario.errors %}
-                <p style="color: red;">{{"Error en la carga"}}</p>
-            {% endif %} 
+            {% if formulario.errors %}          
+                <p style="color: red;">{{"Error en la carga, revise los datos ingresados."}}</p>
+            {% endif %}
             <h4>Ingrese el nombre  y cantidad del nuevo insumo:</h4>
             <form action="", method="POST">
                 {% csrf_token %}
@@ -23,6 +23,9 @@
 
                 <input type="submit" value="Cargar">
             </form>
+            {% if formulario.errors %}
+                <p style="color: red;">{{"Error en la carga"}}</p>
+            {% endif %} 
         </body>
         </html>
     {% endblock %}

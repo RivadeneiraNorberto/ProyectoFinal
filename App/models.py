@@ -1,3 +1,5 @@
+from cgitb import text
+from tkinter.tix import InputOnly
 from django.db import models
 
 # Create your models here.

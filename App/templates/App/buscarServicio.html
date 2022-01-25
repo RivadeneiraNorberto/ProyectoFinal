@@ -13,8 +13,7 @@
             <h4>Busqueda de servicios.</h4>
             <h6>Ingrese el nombre o parte del nombre del servicio.</h6>
             <form action="{% url 'busquedaServicio' %}", method="GET">
-                <input type="text" name="nombre">
-                
+                <input type="text" name="nombre" pattern="[A-Za-z]+" title="Ingrese solo letras"> 
                 <input type="submit" value="Buscar">
             </form>
         </body>
