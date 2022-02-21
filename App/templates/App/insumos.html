@@ -1,7 +1,6 @@
 {% extends "App/padre.html" %}
 {% load static %}
     {% block contenidoQueCambia %}
-
         <!DOCTYPE html>
         <html lang="en">
         <head>
@@ -11,13 +10,16 @@
             <title>Consulta insumos</title>
         </head>
         <body>
-            
             {% if insumos %}
-            <h4> Los insumos disponibles son:</h4>
+                <h4> Los insumos disponibles son:</h4>
                 {% for i in insumos %}
-                    {{i.nombre}} - {{i.cantidad}}
+                    {{i}}
+                    <a href="{% url 'detalleInsumo' i.id %}"> Ver </a>
+                    <a href="{% url 'eliminarInsumo' i.id %}"> Eliminar </a>
+                    <a href="{% url 'modificarInsumo' i.id %}"> Modificar </a>
                     <br>
                 {% endfor %}
+                
                 <form action="/altaInsumo/", method="GET">
                     {% csrf_token %}
                     <input type="submit" value="Nuevo insumo">
@@ -27,14 +29,13 @@
                     <input type="submit" value="Buscar insumo">
                 </form>
             {% else %}
-                <h4>Aun no hay insumos cargados.</h4>
-                <h5>Presione el boton "Nuevo insumo" para realizar la carga.</h5>
-                <form action="/altaInsumo/", method="POST">
-                    {% csrf_token %}
-                    <input type="submit" value="Nuevo insumo">
-                </form>
+            <h4>Aun no hay insumos cargados.</h4>
+            <h5>Presione el boton "Nuevo insumo" para realizar la carga.</h5>
+            <form action="/altaInsumo/", method="POST">
+                {% csrf_token %}
+                <input type="submit" value="Nuevo insumo">
+            </form>
             {% endif %}
-          
         </body>
         </html>
     {% endblock %}

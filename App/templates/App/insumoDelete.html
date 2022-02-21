@@ -1,0 +1,16 @@
+{% extends "App/padre.html" %}
+    {% load static %}
+    {% block contenidoQueCambia %}
+
+    
+        <form action="" method="POST">
+            {% csrf_token %}
+            <ul>
+                <li> Nombre: {{insumo.nombre}}</li>
+                <li> Cantidad: {{insumo.cantidad}}</li>
+            </ul>
+                <input type="submit" value="Confirmar eliminación">
+                <input type="button" onclick="history.back()" name="Volver" value="Volver">
+        </form>
+        
+{% endblock %}

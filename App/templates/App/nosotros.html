@@ -1,0 +1,26 @@
+{% extends "App/padre.html" %}
+{% load static %}
+    {% block contenidoQueCambia %}
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Nosotros</title>
+        </head>
+        <body>
+                <form action="", method="GET">
+                    {% csrf_token %}
+                    
+                    <h2>Misión</h2>
+                    <div>el objetivo de nuestra empresa es incursionar en el mercado de la cosmética del automóvil, a fin de ofrecer diversos productos orientados a jobistas, profesionales y revendedores del rubro, pudiendo posicionar a nuestros productos en el mercado provincial y nacional.</div>
+                    <img src="media/imagenes/taller.jfif">
+                    <br><br>
+                    <input type="button" onclick="history.back()" name="Volver" value="Volver">
+                
+                </form>
+                
+        </body>
+        </html>
+    {% endblock %}

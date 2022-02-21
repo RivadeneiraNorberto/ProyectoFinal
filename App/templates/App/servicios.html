@@ -13,9 +13,13 @@
             {% if servicios %}
                 <h4> Los servicios disponibles son:</h4>
                 {% for i in servicios %}
-                    {{i.nombre}} {{i.descripcion}} {{i.precio}}
+                    {{i}}
+                    <a href="{% url 'detalleServicio' i.id %}"> Ver </a>
+                    <a href="{% url 'eliminarServicio' i.id %}"> Eliminar </a>
+                    <a href="{% url 'modificarServicio' i.id %}"> Modificar </a>
                     <br>
                 {% endfor %}
+                
                 <form action="/altaServicio/", method="GET">
                     {% csrf_token %}
                     <input type="submit" value="Nuevo servicio">

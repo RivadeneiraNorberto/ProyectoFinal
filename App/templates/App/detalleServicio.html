@@ -1,0 +1,13 @@
+{% extends "App/padre.html" %}
+    {% load static %}
+    {% block contenidoQueCambia %}
+
+        <ul>
+            <li> Nombre: {{servicio.nombre}}</li>
+            <li> Descripcion: {{servicio.descripcion}}</li>
+            <li> Precio: $ {{servicio.precio}}</li>
+        </ul>
+        
+        <input type="button" onclick="history.back()" name="Volver" value="Volver">
+
+{% endblock %}

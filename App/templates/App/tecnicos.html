@@ -13,7 +13,10 @@
             {% if tecnicos %}
                 <h4> Los tenicos disponibles son:</h4>
                 {% for i in tecnicos %}
-                    {{i.nombre}} {{i.apellido}}
+                    {{i}}
+                    <a href="{% url 'detalleTecnico' i.id %}"> Ver </a>
+                    <a href="{% url 'eliminarTecnico' i.id %}"> Eliminar </a>
+                    <a href="{% url 'modificarTecnico' i.id %}"> Modificar </a>
                     <br>
                 {% endfor %}
                 
