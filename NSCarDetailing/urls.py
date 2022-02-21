@@ -17,8 +17,8 @@ from App import views
 from django.contrib import admin
 from django.urls import path
 from django.contrib.auth.views import LogoutView, LoginView
-from EntregaIntermedia.settings import MEDIA_ROOT
-from EntregaIntermedia.views import UserCreateView, editarPerfil, register , login_request
+from NSCarDetailing.settings import MEDIA_ROOT
+from NSCarDetailing.views import UserCreateView, editarPerfil, register , login_request
 from django.conf import settings
 from django.conf.urls.static import static
 

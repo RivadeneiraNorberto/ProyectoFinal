@@ -12,7 +12,7 @@ from django.contrib.auth.decorators import login_required
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from App.views import AvatarView
 
-from EntregaIntermedia.forms import FormRegistro, UserEditForm
+from NSCarDetailing.forms import FormRegistro, UserEditForm
 
 def login_request(request):
     if request.method == 'POST':
