@@ -23,6 +23,6 @@ class UserEditForm(UserCreationForm):
     first_name = CharField()
     class Meta:
         model=User
-        fields = ['email','password1','password2']#, 'last_name', 'first_name'] 
+        fields = ['email','password1','password2', 'first_name','last_name'] 
         help_texts = {k:"" for k in fields}
         

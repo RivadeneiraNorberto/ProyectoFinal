@@ -53,7 +53,7 @@ urlpatterns = [
     
     path('login', login_request, name = 'login'),
     #path('login', LoginView.as_view(template_name = 'login.html'), name = 'login'),
-    path('registro', register, name = 'registro'),
+    path('user/registro', register, name = 'registro'),
     path('logout', LogoutView.as_view(template_name = 'logout.html'), name = 'logout'),
     path('user/editar', editarPerfil, name = 'editarPerfil'),
     path('user/avatar', views.agregarAvatar, name = 'agregarAvatar'),

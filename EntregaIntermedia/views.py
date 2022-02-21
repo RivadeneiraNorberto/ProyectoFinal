@@ -34,7 +34,7 @@ def login_request(request):
         form = AuthenticationForm()
         return render(request,'login.html', {'form' : form})
     
-@login_required   
+   
 def register(request):
     if request.method == 'POST':
         form = FormRegistro(request.POST)
@@ -63,7 +63,7 @@ def editarPerfil(request):
         if formulario.is_valid():
             data = formulario.cleaned_data
             usuario.email = data['email']
-            usuario.set_password = data['password1']
+            usuario.set_password(data['password1'])
             usuario.first_name = data ['first_name']
             usuario.last_name = data ['last_name']
             usuario.save()
